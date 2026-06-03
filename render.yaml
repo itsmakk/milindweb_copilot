@@ -1,0 +1,97 @@
+# ============================================================================
+#  Render Blueprint — MilindWeb API
+#  https://render.com/docs/blueprint-spec
+#
+#  Triggered from the Render dashboard:
+#    New → Blueprint → pick the GitHub repo → apply.
+#  All env vars without `sync: false` are editable in the dashboard.
+# ============================================================================
+
+services:
+  - type: web
+    name: mk9-api
+    runtime: docker
+    rootDir: api
+    dockerfilePath: ./Dockerfile
+    plan: starter
+    region: oregon
+    autoDeploy: true
+    healthCheckPath: /api/v1/health/live
+    numInstances: 1
+
+    envVars:
+      # ---- 0. Core ---------------------------------------------------------
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: LOG_LEVEL
+        value: info
+      - key: APP_BASE_URL
+        value: https://mk9.in
+      - key: API_BASE_URL
+        value: https://mk9.in
+      - key: ALLOWED_HOSTS
+        value: mk9.in,www.mk9.in,api-mk9.onrender.com
+
+      # ---- 1. Drivers ------------------------------------------------------
+      - key: DB_DRIVER
+        value: insforge
+      - key: AUTH_DRIVER
+        value: insforge
+
+      # ---- 2. PostgreSQL (not used in prod) -------------------------------
+      - key: PG_POOL_MIN
+        value: 2
+      - key: PG_POOL_MAX
+        value: 10
+      - key: PG_STATEMENT_TIMEOUT_MS
+        value: 15000
+
+      # ---- 3. InsForge (FILL THESE IN THE RENDER DASHBOARD) ---------------
+      - key: INSFORGE_BASE_URL
+        sync: false
+      - key: INSFORGE_API_KEY
+        sync: false
+      - key: INSFORGE_ANON_KEY
+        sync: false
+      - key: INSFORGE_ADMIN_EMAILS
+        sync: false
+
+      # ---- 5. API ----------------------------------------------------------
+      - key: API_PREFIX
+        value: /api/v1
+      - key: SWAGGER_ENABLED
+        value: false
+      - key: CORS_ORIGINS
+        value: https://mk9.in,https://www.mk9.in
+      - key: THROTTLE_TTL
+        value: 60
+      - key: THROTTLE_LIMIT
+        value: 100
+      - key: THROTTLE_USER_LIMIT
+        value: 600
+
+      # ---- 6. Storage ------------------------------------------------------
+      - key: STORAGE_DRIVER
+        value: insforge
+      - key: STORAGE_LOCAL_PATH
+        value: ./uploads
+
+      # ---- 9. Feature flags -----------------------------------------------
+      - key: FEATURE_BLOG
+        value: true
+      - key: FEATURE_SENIORITY
+        value: true
+      - key: FEATURE_HOSPITAL
+        value: true
+      - key: FEATURE_PORTFOLIO_API
+        value: true
+      - key: FEATURE_INSFORGE_PARITY
+        value: true
+
+      # ---- 10. Secrets (RANDOM; do not change) ----------------------------
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: COOKIE_DOMAIN
+        value: mk9.in

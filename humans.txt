@@ -1,0 +1,21 @@
+/* TEAM */
+Creator: Milind
+Site: https://milindweb.github.io/
+Contact: mailto:Aartitechservices@gmail.com
+Location: Navi Mumbai, Maharashtra, India
+Founded: 2022
+
+/* SITE */
+Last update: 2026-06-03
+Standards: HTML5, CSS3, ES2020+
+Components: Vanilla HTML / CSS / JS, no build step
+Hosting: GitHub Pages (static)
+Forms: Google Apps Script webhook
+Components: Font Awesome 6.5, Inter / system-ui fonts
+Doctype: HTML5
+Language: English (en-IN)
+
+/* THANKS */
+- GitHub Pages for free static hosting
+- Google Fonts for the icon and font CDN
+- The open-source community for tools and inspiration

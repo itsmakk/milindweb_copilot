@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta name="robots" content="noindex, follow" />
+  <title>404 — Page Not Found | MilindWeb</title>
+
+  <meta name="description" content="The page you were looking for could not be found. Browse our services or get in touch with MilindWeb." />
+  <meta name="author" content="MilindWeb" />
+  <link rel="canonical" href="https://milindweb.github.io/404.html" />
+
+  <meta property="og:title" content="404 — Page Not Found | MilindWeb" />
+  <meta property="og:description" content="The page you were looking for could not be found." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://milindweb.github.io/404.html" />
+  <meta property="og:image" content="https://milindweb.github.io/img/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/headerfooter.css" />
+
+  <style>
+    .nf-hero { padding-top: clamp(3rem, 7vw, 5rem); padding-bottom: var(--s-5); text-align: center; }
+    .nf-code {
+      font-size: clamp(7rem, 18vw, 12rem);
+      font-weight: 800; line-height: 0.9;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin: 0; letter-spacing: -0.04em;
+    }
+    .nf-orbit {
+      position: relative; max-width: 480px; margin: var(--s-5) auto 0;
+    }
+    .nf-orbit__ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      border: 1px dashed var(--border-2);
+      animation: nf-spin 24s linear infinite;
+    }
+    .nf-orbit__ring--2 { inset: 30px; animation-duration: 18s; animation-direction: reverse; }
+    .nf-orbit__ring--3 { inset: 60px; animation-duration: 12s; }
+    .nf-orbit__core {
+      position: relative; aspect-ratio: 1;
+      display: flex; align-items: center; justify-content: center;
+      background: radial-gradient(circle at 50% 50%, rgba(99,102,241,0.15), transparent 70%);
+    }
+    .nf-orbit__core i {
+      font-size: 4rem;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .nf-orbit__chip {
+      position: absolute; padding: 6px 12px;
+      background: var(--surface-1); border: 1px solid var(--border-2);
+      border-radius: 999px; font-size: 0.78rem; color: var(--text-2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .nf-orbit__chip--1 { top: 8%;  left: 10%; }
+    .nf-orbit__chip--2 { top: 18%; right: 6%;  }
+    .nf-orbit__chip--3 { bottom: 12%; left: 4%; }
+    .nf-orbit__chip--4 { bottom: 6%; right: 14%; }
+    @keyframes nf-spin { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .nf-orbit__ring { animation: none; } }
+
+    .nf-popular { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--s-3); margin-top: var(--s-5); }
+    .nf-popular a {
+      display: flex; align-items: center; gap: var(--s-3);
+      padding: var(--s-3) var(--s-4);
+      text-decoration: none; color: var(--text-1);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .nf-popular a:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .nf-popular a i { color: var(--accent); font-size: 1.1rem; }
+    .nf-popular a span { font-weight: 500; }
+
+    .nf-search {
+      max-width: 480px; margin: 0 auto;
+      display: flex; align-items: center; gap: var(--s-2);
+      padding: var(--s-3) var(--s-4);
+      background: var(--surface-1); border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      transition: border-color 0.2s ease;
+    }
+    .nf-search:focus-within { border-color: var(--accent); }
+    .nf-search i { color: var(--accent); }
+    .nf-search input { flex: 1; background: transparent; border: 0; outline: 0; color: var(--text-1); font: inherit; }
+    .nf-search input::placeholder { color: var(--text-3); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="header"></div>
+
+  <main id="main">
+
+    <section class="hero nf-hero">
+      <div class="container container--narrow">
+        <h1 class="nf-code reveal">404</h1>
+        <h2 class="reveal" data-delay="1" style="margin-top: var(--s-3);">This page took a wrong turn.</h2>
+        <p class="reveal" data-delay="2" style="margin-top: var(--s-3); color: var(--text-2);">
+          We couldn't find what you were looking for. The link may be old, the page may have moved, or the URL might have a typo.
+        </p>
+
+        <div class="nf-orbit reveal" data-delay="3" aria-hidden="true">
+          <div class="nf-orbit__ring"></div>
+          <div class="nf-orbit__ring nf-orbit__ring--2"></div>
+          <div class="nf-orbit__ring nf-orbit__ring--3"></div>
+          <div class="nf-orbit__core">
+            <i class="fas fa-compass"></i>
+          </div>
+          <span class="nf-orbit__chip nf-orbit__chip--1"><i class="fas fa-search" aria-hidden="true"></i> Search</span>
+          <span class="nf-orbit__chip nf-orbit__chip--2"><i class="fas fa-home" aria-hidden="true"></i> Home</span>
+          <span class="nf-orbit__chip nf-orbit__chip--3"><i class="fas fa-envelope" aria-hidden="true"></i> Contact</span>
+          <span class="nf-orbit__chip nf-orbit__chip--4"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</span>
+        </div>
+
+        <div class="hero__cta reveal" data-delay="4" style="margin-top: var(--s-6);">
+          <a href="index.html" class="btn btn--primary btn--lg"><i class="fas fa-home"></i> Back to Home</a>
+          <a href="#popular" class="btn btn--ghost btn--lg"><i class="fas fa-compass"></i> Explore Services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="popular" style="padding-top: var(--s-3);">
+      <div class="container container--narrow">
+
+        <div class="section-head reveal" style="text-align:center;">
+          <span class="eyebrow">Looking for something specific?</span>
+          <h2>Popular <span class="text-grad">destinations</span></h2>
+        </div>
+
+        <form class="nf-search reveal" role="search" onsubmit="event.preventDefault(); var q=this.querySelector('input').value.trim(); if(!q){return;} window.MW.waHref && (window.location.href='contact.html');">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <label class="visually-hidden" for="nfQuery">Search the site</label>
+          <input id="nfQuery" type="search" placeholder="Search services, e.g. SEO, photography…" autocomplete="off" />
+        </form>
+
+        <div class="nf-popular">
+          <a href="index.html" class="glass-card"><i class="fas fa-home" aria-hidden="true"></i><span>Homepage</span></a>
+          <a href="freelance_seo_consultant.html" class="glass-card"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Digital Marketing &amp; SEO</span></a>
+          <a href="website-tech-solutions.html" class="glass-card"><i class="fas fa-laptop-code" aria-hidden="true"></i><span>Website Development</span></a>
+          <a href="automation.html" class="glass-card"><i class="fas fa-gears" aria-hidden="true"></i><span>Business Automation</span></a>
+          <a href="project.html" class="glass-card"><i class="fas fa-microchip" aria-hidden="true"></i><span>Engineering Projects</span></a>
+          <a href="photography.html" class="glass-card"><i class="fas fa-camera-retro" aria-hidden="true"></i><span>Photography &amp; Drone</span></a>
+          <a href="graphics.html" class="glass-card"><i class="fas fa-paint-brush" aria-hidden="true"></i><span>Graphics &amp; Branding</span></a>
+          <a href="electrical.html" class="glass-card"><i class="fas fa-bolt" aria-hidden="true"></i><span>Electrical Services</span></a>
+          <a href="automotive.html" class="glass-card"><i class="fas fa-motorcycle" aria-hidden="true"></i><span>Automotive</span></a>
+          <a href="workshop.html" class="glass-card"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i><span>Workshops</span></a>
+          <a href="calendar.html" class="glass-card"><i class="fas fa-calendar-days" aria-hidden="true"></i><span>Calendar &amp; Holidays</span></a>
+          <a href="links.html" class="glass-card"><i class="fas fa-bookmark" aria-hidden="true"></i><span>Useful Links</span></a>
+          <a href="contact.html" class="glass-card"><i class="fas fa-envelope" aria-hidden="true"></i><span>Contact &amp; Legal</span></a>
+        </div>
+
+        <p class="text-center reveal" style="margin-top: var(--s-5); color: var(--text-3); font-size: 0.9rem;">
+          Still stuck? <a href="#" id="nfWa" style="color: var(--accent); text-decoration: underline;">Send us a WhatsApp message</a> and we'll point you in the right direction.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <button id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <script src="config.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/insforge-client.js" defer></script>
+    <script src="js/headerfooter.js" defer></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var btn = document.getElementById("nfWa");
+      if (btn && window.MW && window.MW.waHref) {
+        var path = window.location.pathname.replace(/^.*\//, "") || "this page";
+        btn.setAttribute("href", window.MW.waHref("Hi! I got a 404 trying to reach " + path + " on MilindWeb. Could you help?"));
+        btn.setAttribute("target", "_blank");
+        btn.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "404 — Page Not Found",
+    "url": "https://milindweb.github.io/404.html",
+    "description": "The page you were looking for could not be found.",
+    "publisher": {"@type": "Organization", "name": "MilindWeb"}
+  }
+  </script>
+</body>
+</html>

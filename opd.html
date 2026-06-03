@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPD Registration · MilindWeb Hospital</title>
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/headerfooter.css" />
+  <link rel="stylesheet" href="css/opd.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body data-page="opd">
+  <div id="header"></div>
+
+  <main class="opd-app">
+    <header class="opd-app__head">
+      <h1><i class="fas fa-stethoscope" aria-hidden="true"></i> OPD Registration</h1>
+      <div class="opd-app__who" id="opdWho"></div>
+    </header>
+
+    <!-- 1. Patient search / new patient -->
+    <section class="opd-step" id="opdStepPatient" aria-labelledby="opdStepPatientH">
+      <div class="opd-step__head">
+        <span class="opd-step__num">1</span>
+        <h2 id="opdStepPatientH">Patient</h2>
+      </div>
+      <div class="opd-step__body">
+        <div class="opd-search">
+          <label for="opdPatientSearch">Search existing patient</label>
+          <div class="opd-search__row">
+            <input type="search" id="opdPatientSearch" placeholder="Name, mobile or UHID" autocomplete="off">
+            <button type="button" class="btn btn--primary" id="opdPatientSearchBtn"><i class="fas fa-search"></i> Search</button>
+            <button type="button" class="btn btn--ghost" id="opdPatientNewBtn"><i class="fas fa-user-plus"></i> New patient</button>
+          </div>
+          <div class="opd-search__results" id="opdSearchResults" role="listbox" aria-label="Patient search results"></div>
+        </div>
+
+        <div class="opd-patient-card" id="opdPatientCard" hidden></div>
+      </div>
+    </section>
+
+    <!-- 2. Visit details (shown after a patient is selected/created) -->
+    <section class="opd-step" id="opdStepVisit" aria-labelledby="opdStepVisitH" hidden>
+      <div class="opd-step__head">
+        <span class="opd-step__num">2</span>
+        <h2 id="opdStepVisitH">Visit</h2>
+      </div>
+      <div class="opd-step__body">
+        <form id="opdVisitForm" novalidate>
+          <div class="opd-grid">
+            <div class="opd-field">
+              <label for="opdDoctor">Doctor</label>
+              <select id="opdDoctor" name="doctorId" required>
+                <option value="">Select doctor…</option>
+              </select>
+            </div>
+            <div class="opd-field">
+              <label for="opdDepartment">Department</label>
+              <select id="opdDepartment" name="departmentId" required>
+                <option value="">Select department…</option>
+              </select>
+            </div>
+            <div class="opd-field opd-field--span-2">
+              <label for="opdChiefComplaints">Chief complaints <small>symptom + duration, one per line</small></label>
+              <textarea id="opdChiefComplaints" name="chiefComplaints" rows="3" placeholder="Fever — 3 days\nCough — 2 days"></textarea>
+              <div class="opd-suggest" id="opdSymptomSuggest" role="listbox" aria-label="Symptom suggestions"></div>
+              <div class="opd-hint" id="opdSymptomHint"></div>
+            </div>
+          </div>
+
+          <h3 class="opd-h3">Vitals</h3>
+          <div class="opd-grid opd-grid--vitals">
+            <div class="opd-field"><label for="opdWeight">Weight (kg)</label><input type="number" min="0" step="0.1" id="opdWeight" name="weightKg"></div>
+            <div class="opd-field"><label for="opdBp">BP <small>mmHg</small></label><input type="text" id="opdBp" name="bp" placeholder="120/80"></div>
+            <div class="opd-field"><label for="opdPulse">Pulse <small>bpm</small></label><input type="number" min="0" id="opdPulse" name="pulse"></div>
+            <div class="opd-field"><label for="opdRr">RR <small>/min</small></label><input type="number" min="0" id="opdRr" name="respiratoryRate"></div>
+            <div class="opd-field"><label for="opdSpo2">SpO₂ <small>%</small></label><input type="number" min="0" max="100" id="opdSpo2" name="spo2"></div>
+            <div class="opd-field"><label for="opdTemp">Temp <small>°F</small></label><input type="number" min="0" step="0.1" id="opdTemp" name="tempF"></div>
+            <div class="opd-field"><label for="opdSugar">Sugar <small>mg/dL</small></label><input type="number" min="0" id="opdSugar" name="sugarMgDl"></div>
+          </div>
+
+          <h3 class="opd-h3">Clinical notes</h3>
+          <div class="opd-grid">
+            <div class="opd-field opd-field--span-2">
+              <label for="opdProvisional">Provisional diagnosis</label>
+              <textarea id="opdProvisional" name="provisionalDiagnosis" rows="2"></textarea>
+            </div>
+            <div class="opd-field">
+              <label for="opdInvAdv">Investigations advised</label>
+              <textarea id="opdInvAdv" name="investigationsAdvised" rows="2"></textarea>
+            </div>
+            <div class="opd-field">
+              <label for="opdInvRep">Investigation reports</label>
+              <textarea id="opdInvRep" name="investigationReports" rows="2"></textarea>
+            </div>
+            <div class="opd-field opd-field--span-2">
+              <label for="opdFinal">Final diagnosis</label>
+              <textarea id="opdFinal" name="finalDiagnosis" rows="2"></textarea>
+            </div>
+            <div class="opd-field opd-field--span-2">
+              <label for="opdAdvice">Advice</label>
+              <textarea id="opdAdvice" name="advice" rows="2"></textarea>
+            </div>
+          </div>
+
+          <h3 class="opd-h3">Prescriptions</h3>
+          <div class="opd-rx-list" id="opdRxList"></div>
+          <button type="button" class="btn btn--ghost" id="opdRxAddBtn"><i class="fas fa-plus"></i> Add medicine</button>
+
+          <h3 class="opd-h3">Outcome &amp; billing</h3>
+          <div class="opd-grid">
+            <div class="opd-field">
+              <label for="opdEffect">Effect after treatment</label>
+              <select id="opdEffect" name="effectAfterTreatment">
+                <option value="">NA</option>
+                <option>Recovered</option>
+                <option>No Change</option>
+                <option>Worsened</option>
+                <option>Follow-up Required</option>
+              </select>
+            </div>
+            <div class="opd-field"><label for="opdFee">Doctor fees</label><input type="number" min="0" id="opdFee" name="doctorFee"></div>
+            <div class="opd-field opd-field--span-2"><label for="opdRemarks">Doctor remarks</label><textarea id="opdRemarks" name="doctorRemarks" rows="2"></textarea></div>
+          </div>
+
+          <div class="opd-actions">
+            <button type="button" class="btn btn--ghost" id="opdResetBtn"><i class="fas fa-rotate"></i> Start over</button>
+            <button type="submit" class="btn btn--primary"><i class="fas fa-floppy-disk"></i> Save visit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. Confirmation + print -->
+    <section class="opd-step" id="opdStepDone" aria-labelledby="opdStepDoneH" hidden>
+      <div class="opd-step__head">
+        <span class="opd-step__num">✓</span>
+        <h2 id="opdStepDoneH">Saved</h2>
+      </div>
+      <div class="opd-step__body">
+        <div class="opd-done" id="opdDone"></div>
+        <div class="opd-actions">
+          <button type="button" class="btn btn--ghost" id="opdNewBtn"><i class="fas fa-plus"></i> New OPD visit</button>
+          <button type="button" class="btn btn--primary" id="opdPrintBtn"><i class="fas fa-print"></i> Print slip</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Print-only header for the visit slip -->
+  <div class="mw-print-header print-only" id="opdPrintHeader" hidden>
+    <div>
+      <h1>MilindWeb Hospital</h1>
+      <div>OPD Visit Slip</div>
+    </div>
+    <div class="meta" id="opdPrintHeaderMeta"></div>
+  </div>
+
+  <script src="auth/oidc-client.js" defer></script>
+  <script src="config.js" defer></script>
+  <script src="js/insforge-client.js" defer></script>
+    <script src="js/headerfooter.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/opd.js" defer></script>
+</body>
+</html>

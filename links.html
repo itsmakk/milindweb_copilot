@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title>Useful Links &amp; Tools — MilindWeb</title>
+
+  <meta name="description" content="A curated, searchable directory of useful tools, AI platforms, design resources, developer utilities, and games that MilindWeb recommends." />
+  <meta name="author" content="MilindWeb" />
+  <link rel="canonical" href="https://milindweb.github.io/links.html" />
+
+  <meta property="og:title" content="Useful Links — MilindWeb" />
+  <meta property="og:description" content="Searchable directory of handpicked tools, AI, design and dev resources." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://milindweb.github.io/links.html" />
+  <meta property="og:image" content="https://milindweb.github.io/img/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/headerfooter.css" />
+
+  <style>
+    .links-hero { padding-top: clamp(3rem, 7vw, 5rem); }
+    .search-box {
+      display: flex; align-items: center; gap: var(--s-3);
+      padding: var(--s-3) var(--s-4);
+      background: var(--surface-1);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      max-width: 640px; margin: 0 auto var(--s-5);
+      transition: border-color 0.2s ease;
+    }
+    .search-box:focus-within { border-color: var(--accent); }
+    .search-box i { color: var(--accent); font-size: 1.1rem; }
+    .search-box input {
+      flex: 1; background: transparent; border: 0; outline: 0;
+      color: var(--text-1); font-family: inherit; font-size: 1rem;
+    }
+    .search-box input::placeholder { color: var(--text-3); }
+
+    .links-category-head {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: var(--s-3);
+      margin-top: var(--s-5);
+    }
+    .links-category-head h3 {
+      margin: 0; font-size: 1.15rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .links-category-head .count {
+      font-size: 0.8rem; color: var(--text-3);
+      background: var(--surface-2); padding: 2px 10px; border-radius: 999px;
+    }
+
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--s-4);
+    }
+
+    .link-card {
+      display: flex; flex-direction: column; gap: var(--s-2);
+      padding: var(--s-4) var(--s-5);
+      text-decoration: none; color: inherit;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .link-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .link-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .link-card__head { display: flex; align-items: center; gap: var(--s-3); }
+    .link-card__ico {
+      width: 38px; height: 38px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff; font-size: 1rem; flex-shrink: 0;
+    }
+    .link-card__title { font-weight: 600; font-size: 1rem; color: var(--text-1); }
+    .link-card__desc { font-size: 0.88rem; color: var(--text-3); line-height: 1.5; }
+    .link-card__external {
+      position: absolute; top: 12px; right: 14px;
+      font-size: 0.75rem; color: var(--text-3);
+    }
+    .link-card__status {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
+      padding: 2px 8px; border-radius: 999px; align-self: flex-start;
+    }
+    .link-card__status--live { background: rgba(34,197,94,0.15); color: #16a34a; }
+    .link-card__status--beta { background: rgba(245,158,11,0.15); color: #d97706; }
+    .link-card__status--broken { background: rgba(239,68,68,0.15); color: #dc2626; }
+
+    .status-message {
+      text-align: center; padding: var(--s-6) 0; color: var(--text-3);
+    }
+    .status-message.error { color: #ef4444; }
+    .empty-state { text-align: center; padding: var(--s-6) 0; color: var(--text-3); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="header"></div>
+
+  <main id="main">
+
+    <section class="hero links-hero">
+      <div class="container container--narrow text-center">
+        <span class="hero__badge reveal"><i class="fas fa-bookmark" aria-hidden="true"></i> Curated Directory</span>
+        <h1 class="reveal" data-delay="1">Useful <span class="text-grad">links &amp; tools</span></h1>
+        <p class="reveal" data-delay="2">Handpicked tools, AI platforms, design resources, developer utilities, and games — searchable, categorized, always free to browse.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+
+        <label class="search-box reveal" for="searchInput">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <input type="text" id="searchInput" placeholder="Search tools, AI, games, utilities…" autocomplete="off" aria-label="Search links" />
+        </label>
+
+        <div id="links-container" class="links-grid"></div>
+
+        <div id="statusMessage" class="status-message"><i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Loading data…</div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <button id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <script src="config.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/insforge-client.js" defer></script>
+    <script src="js/headerfooter.js" defer></script>
+
+  <script>
+    /* === Original data loader preserved; rendering re-skinned. === */
+    let linksData = [];
+    const container = document.getElementById("links-container");
+    const statusMessage = document.getElementById("statusMessage");
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" })[c];
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch("data/links.json");
+        if (!response.ok) throw new Error("Failed to load JSON");
+        linksData = await response.json();
+        statusMessage.hidden = true;
+        renderLinks();
+      } catch (error) {
+        statusMessage.className = "status-message error";
+        statusMessage.innerHTML = '<i class="fas fa-triangle-exclamation" aria-hidden="true"></i> Error loading data. Check JSON path.';
+        console.error(error);
+      }
+    }
+
+    function statusBadge(status) {
+      const s = (status || "").toLowerCase();
+      if (!s || s === "live") return "";
+      if (s === "beta") return '<span class="link-card__status link-card__status--beta">Beta</span>';
+      if (s === "broken" || s === "down") return '<span class="link-card__status link-card__status--broken">Down</span>';
+      return "";
+    }
+
+    function renderLinks(filterText) {
+      const search = (filterText || "").toLowerCase().trim();
+      container.innerHTML = "";
+      let anyVisible = false;
+
+      linksData.forEach(function (section) {
+        const visibleItems = section.items.filter(function (item) {
+          if (!search) return true;
+          return (item.title || "").toLowerCase().includes(search) ||
+                 (item.desc  || "").toLowerCase().includes(search);
+        });
+        if (!visibleItems.length) return;
+
+        anyVisible = true;
+
+        const head = document.createElement("div");
+        head.className = "links-category-head";
+        head.innerHTML = '<h3>' + escapeHtml(section.category) + '</h3>' +
+                         '<span class="count">' + visibleItems.length + '</span>';
+        container.appendChild(head);
+
+        visibleItems.forEach(function (item) {
+          const a = document.createElement("a");
+          a.className = "glass-card link-card";
+          a.href = item.link;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+          a.innerHTML =
+            '<i class="fas fa-arrow-up-right-from-square link-card__external" aria-hidden="true"></i>' +
+            '<div class="link-card__head">' +
+              '<span class="link-card__ico"><i class="' + escapeHtml(item.icon || "fas fa-link") + '" aria-hidden="true"></i></span>' +
+              '<span class="link-card__title">' + escapeHtml(item.title) + '</span>' +
+            '</div>' +
+            '<p class="link-card__desc">' + escapeHtml(item.desc || "") + '</p>' +
+            statusBadge(item.status);
+          container.appendChild(a);
+        });
+      });
+
+      if (!anyVisible) {
+        const empty = document.createElement("div");
+        empty.className = "empty-state";
+        empty.textContent = search ? 'No links match "' + search + '".' : "No links to display.";
+        container.appendChild(empty);
+      }
+    }
+
+    document.getElementById("searchInput").addEventListener("input", function () {
+      renderLinks(this.value);
+    });
+
+    loadData();
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Useful Links — MilindWeb",
+    "url": "https://milindweb.github.io/links.html",
+    "publisher": {"@type": "Organization", "name": "MilindWeb"}
+  }
+  </script>
+</body>
+</html>

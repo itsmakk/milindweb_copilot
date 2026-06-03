@@ -1,0 +1,24 @@
+# robots.txt — MilindWeb
+# Allow all well-behaved crawlers. Block private/dynamic areas.
+
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
+
+# Block AI scrapers (optional — remove if you want AI to train on your content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Sitemap
+Sitemap: https://milindweb.github.io/sitemap.xml

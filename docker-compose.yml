@@ -1,0 +1,60 @@
+# Local development stack for MilindWeb.
+#
+# This brings up Postgres + the NestJS API. The static site is served by
+# `python3 -m http.server` from the repo root (or by Cloudflare Pages in
+# production). For the InsForge driver path, point the API at your InsForge
+# instance and you don't need the local Postgres at all.
+#
+# Usage:
+#   docker compose up --build
+#
+# Then in another terminal:
+#   pnpm migrate:up          # uses the local Postgres
+#   pnpm --filter @milindweb/api dev
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: mw-postgres
+    environment:
+      POSTGRES_DB: milindweb
+      POSTGRES_USER: milindweb
+      POSTGRES_PASSWORD: ${PG_PASSWORD:-devpass}
+    ports:
+      - "5432:5432"
+    volumes:
+      - mw-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U milindweb -d milindweb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mw-api
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      DB_DRIVER: pg
+      AUTH_DRIVER: authentik
+      DATABASE_URL: postgresql://milindweb:${PG_PASSWORD:-devpass}@postgres:5432/milindweb
+      AUTHENTIK_URL: ${AUTHENTIK_URL:-http://localhost:9000}
+      AUTHENTIK_ISSUER: ${AUTHENTIK_ISSUER:-http://localhost:9000/application/o/milindweb-api/}
+      AUTHENTIK_JWKS_URI: ${AUTHENTIK_JWKS_URI:-http://localhost:9000/application/o/milindweb-api/jwks/}
+      AUTHENTIK_CLIENT_ID: ${AUTHENTIK_CLIENT_ID:-milindweb-api}
+      AUTHENTIK_AUDIENCE: ${AUTHENTIK_AUDIENCE:-milindweb-api}
+      AUTHENTIK_CALLBACK_URL: ${AUTHENTIK_CALLBACK_URL:-http://localhost:8080/auth/callback}
+      JWT_AUDIENCE: ${JWT_AUDIENCE:-milindweb-api}
+      JWT_ISSUER: ${JWT_ISSUER:-http://localhost:9000/application/o/milindweb-api/}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8080,https://mk9.in,https://www.mk9.in}
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres: { condition: service_healthy }
+    restart: unless-stopped
+
+volumes:
+  mw-pgdata:

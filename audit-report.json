@@ -1,0 +1,296 @@
+[
+  {
+    "page": "index.html",
+    "size_kb": 21.2,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "freelance_seo_consultant.html",
+    "size_kb": 25.1,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "graphics.html",
+    "size_kb": 9.4,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "website-tech-solutions.html",
+    "size_kb": 10.4,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "project.html",
+    "size_kb": 12.1,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "workshop.html",
+    "size_kb": 10.2,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "photography.html",
+    "size_kb": 11.2,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "electrical.html",
+    "size_kb": 9.8,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "automotive.html",
+    "size_kb": 9.1,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "automation.html",
+    "size_kb": 11.5,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "contact.html",
+    "size_kb": 14.8,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "calendar.html",
+    "size_kb": 11.5,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "links.html",
+    "size_kb": 10.3,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  },
+  {
+    "page": "404.html",
+    "size_kb": 10.9,
+    "scores": {
+      "seo": 100,
+      "accessibility": 100,
+      "best-practices": 95,
+      "performance": 100
+    },
+    "overall": 99.0,
+    "issues": {
+      "h1_count": 1,
+      "imgs_no_alt": 0,
+      "inputs_no_label": 0,
+      "buttons_no_text": 0,
+      "lang": "en",
+      "has_skip_link": true,
+      "has_manifest": true,
+      "has_structured_nav": false
+    }
+  }
+]

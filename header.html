@@ -1,0 +1,67 @@
+<!-- header.html — Loaded by js/headerfooter.js -->
+<header class="hf-header" role="banner">
+  <div class="hf-nav-container">
+
+    <a href="index.html" class="hf-logo-section" aria-label="Go to homepage">
+      <span class="hf-logo-icon" aria-hidden="true">M</span>
+      <span class="hf-logo-text">
+        <span class="hf-logo" data-fill="brand-name">MilindWeb</span>
+        <span class="hf-tagline" data-fill="brand-tagline">Life should be great rather than long</span>
+      </span>
+    </a>
+
+    <button class="hf-mobile-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="hfMobileMenu">
+      <span class="hf-hamburger-line"></span>
+      <span class="hf-hamburger-line"></span>
+      <span class="hf-hamburger-line"></span>
+    </button>
+
+    <nav class="hf-nav-menu" aria-label="Primary navigation">
+      <ul>
+        <li class="hf-nav-item"><a href="index.html" class="hf-nav-link">Home</a></li>
+        <li class="hf-nav-item hf-dropdown">
+          <a href="#services" class="hf-nav-link" aria-haspopup="true" aria-expanded="false">
+            Services <i class="fas fa-chevron-down hf-caret" aria-hidden="true"></i>
+          </a>
+          <div class="hf-dropdown-content" role="menu" data-fill="nav-services"></div>
+        </li>
+        <li class="hf-nav-item"><a href="#about" class="hf-nav-link">About</a></li>
+        <li class="hf-nav-item"><a href="blog.html" class="hf-nav-link">Blog</a></li>
+        <li class="hf-nav-item"><a href="contact.html" class="hf-nav-link">Contact</a></li>
+        <li class="hf-nav-item">
+          <a href="auth/login.html" class="hf-nav-link" id="hfAuthLink" title="Sign in to admin tools">Sign in</a>
+        </li>
+        <li class="hf-nav-item" id="hfUserMenuSlot" hidden>
+          <a href="auth/me.html" class="hf-nav-link" id="hfUserMenuLink" title="My account"></a>
+        </li>
+        <li class="hf-nav-item hf-cta-item">
+          <a href="#contact" class="btn btn--primary btn--sm" data-fill="wa-cta" data-wa-msg="Hi! I'd like a free consultation.">Get Quote</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="hfMobileMenu" class="hf-mobile-menu" aria-hidden="true">
+    <ul class="hf-mobile-nav-list">
+      <li><a href="index.html" class="hf-mobile-nav-link">Home</a></li>
+      <li class="hf-mobile-group">
+        <span class="hf-mobile-group-label">Services</span>
+        <div data-fill="nav-services-mobile" class="hf-mobile-sublist"></div>
+      </li>
+      <li><a href="index.html#about" class="hf-mobile-nav-link">About</a></li>
+      <li><a href="blog.html" class="hf-mobile-nav-link">Blog</a></li>
+      <li><a href="contact.html" class="hf-mobile-nav-link">Contact</a></li>
+      <li><a href="auth/login.html" class="hf-mobile-nav-link" id="hfAuthLinkMobile">Sign in</a></li>
+      <li id="hfUserMenuSlotMobile" hidden>
+        <a href="auth/me.html" class="hf-mobile-nav-link" id="hfUserMenuLinkMobile"></a>
+      </li>
+      <li>
+        <a href="#" class="btn btn--primary btn--block" data-fill="wa-cta" data-wa-msg="Hi! I'd like a free consultation.">Get Free Quote</a>
+      </li>
+    </ul>
+  </div>
+  <div class="hf-mobile-overlay" aria-hidden="true"></div>
+</header>

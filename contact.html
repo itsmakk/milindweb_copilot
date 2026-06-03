@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title>Contact, Legal &amp; Policies — MilindWeb</title>
+
+  <meta name="description" content="Get in touch with MilindWeb. Read our privacy policy, disclaimer, terms &amp; conditions, terms of use, and send feedback." />
+  <meta name="author" content="MilindWeb" />
+  <link rel="canonical" href="https://milindweb.github.io/contact.html" />
+
+  <meta property="og:title" content="Contact & Legal — MilindWeb" />
+  <meta property="og:description" content="Reach MilindWeb for services, questions, or to read our policies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://milindweb.github.io/contact.html" />
+  <meta property="og:image" content="https://milindweb.github.io/img/og-cover.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/headerfooter.css" />
+
+  <style>
+    .contact-hero { padding-top: clamp(3rem, 7vw, 5rem); }
+    .legal-grid { display: grid; grid-template-columns: 1fr; gap: var(--s-4); }
+    .legal-card { padding: 0; overflow: hidden; }
+    .legal-card > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--s-3);
+      padding: var(--s-4) var(--s-5);
+      font-weight: 600; font-size: 1.05rem;
+      color: var(--text-1);
+      user-select: none;
+    }
+    .legal-card > summary::-webkit-details-marker { display: none; }
+    .legal-card > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: var(--r-sm); }
+    .legal-card > summary .ico {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .legal-card > summary .chev { transition: transform 0.3s ease; color: var(--text-3); }
+    .legal-card[open] > summary .chev { transform: rotate(180deg); }
+    .legal-card > summary > .left { display: flex; align-items: center; gap: var(--s-3); }
+    .legal-card .body { padding: 0 var(--s-5) var(--s-5); color: var(--text-2); line-height: 1.65; }
+
+    .contact-layout { display: grid; grid-template-columns: 1fr; gap: var(--s-5); }
+    @media (min-width: 880px) {
+      .contact-layout { grid-template-columns: 1.4fr 1fr; align-items: start; }
+    }
+    .info-row { display: flex; align-items: flex-start; gap: var(--s-3); padding: var(--s-3) 0; border-bottom: 1px solid var(--border-1); }
+    .info-row:last-child { border-bottom: 0; }
+    .info-row .ico { width: 38px; height: 38px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: var(--surface-2); color: var(--accent); flex-shrink: 0; }
+    .info-row .label { font-size: 0.8rem; color: var(--text-3); margin: 0 0 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .info-row .value { font-size: 0.95rem; color: var(--text-1); margin: 0; }
+    .info-row a.value { color: var(--accent); text-decoration: none; }
+    .info-row a.value:hover { text-decoration: underline; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-2); }
+    .chip { font-size: 0.78rem; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); color: var(--text-2); border: 1px solid var(--border-1); }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="header"></div>
+
+  <main id="main">
+
+    <section class="hero contact-hero">
+      <div class="container container--narrow text-center">
+        <span class="hero__badge reveal"><i class="fas fa-envelope-open-text" aria-hidden="true"></i> Contact &amp; Legal</span>
+        <h1 class="reveal" data-delay="1">Reach out, stay <span class="text-grad">informed</span></h1>
+        <p class="reveal" data-delay="2">Questions, projects, feedback, or just a hello — we read everything. You can also review our policies, terms, and disclaimer below.</p>
+        <div class="hero__cta reveal" data-delay="3" style="margin-top: var(--s-6);">
+          <a href="#contact-form" class="btn btn--primary btn--lg"><i class="fas fa-paper-plane"></i> Send a Message</a>
+          <a href="#policies" class="btn btn--ghost btn--lg"><i class="fas fa-shield-halved"></i> Read Policies</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="policies">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">About &amp; Policies</span>
+          <h2>Know who you're <span class="text-grad">working with</span></h2>
+          <p>Everything you should know before reaching out — clearly written, no fine print tricks.</p>
+        </div>
+
+        <div class="legal-grid">
+          <div class="glass-card legal-card reveal" style="--delay:0ms;">
+            <details open>
+              <summary>
+                <span class="left"><span class="ico"><i class="fas fa-briefcase"></i></span> About MilindWeb</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>Hi, I'm Milind — creator of MilindWeb, a platform dedicated to creativity, learning, and small-business services. I support businesses in expanding their online presence through SEO &amp; Digital Marketing, design clean and responsive websites, develop custom software tools for automation, craft logos, posters, and visual branding, and conduct projects and workshops that deliver practical, hands-on learning experiences.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card legal-card reveal" style="--delay:50ms;">
+            <details>
+              <summary>
+                <span class="left"><span class="ico" style="background:linear-gradient(135deg,#6366f1,#0ea5e9);"><i class="fas fa-user-shield"></i></span> Privacy Policy</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>At MilindWeb, your privacy matters. We only collect basic details you choose to share (such as name, email, or phone) when you contact us. These are used solely for communication and service purposes. We do not sell, rent, or misuse your personal data.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card legal-card reveal" style="--delay:100ms;">
+            <details>
+              <summary>
+                <span class="left"><span class="ico" style="background:linear-gradient(135deg,#f59e0b,#ef4444);"><i class="fas fa-exclamation-circle"></i></span> Disclaimer</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>Content on MilindWeb is created for educational, creative, and small-business purposes. While we aim for accuracy, we cannot guarantee completeness of all information. Some material may be AI-generated, publicly sourced, or referenced from third parties. All trademarks and copyrights remain with their respective owners.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card legal-card reveal" style="--delay:150ms;">
+            <details>
+              <summary>
+                <span class="left"><span class="ico" style="background:linear-gradient(135deg,#10b981,#22c55e);"><i class="fas fa-file-contract"></i></span> Terms &amp; Conditions</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>By using this website, you agree to access content responsibly and respect intellectual property rights. Services offered through MilindWeb are subject to availability and mutual agreement. Any misuse, plagiarism, or unauthorized use of content is strictly prohibited.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card legal-card reveal" style="--delay:200ms;">
+            <details>
+              <summary>
+                <span class="left"><span class="ico" style="background:linear-gradient(135deg,#0ea5e9,#06b6d4);"><i class="fas fa-gavel"></i></span> Terms of Use</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>MilindWeb is designed for learning, creativity, and light business engagement. Visitors are free to explore resources, provide feedback, and reach out for services. By continuing to use this site, you acknowledge acceptance of these terms.</p>
+              </div>
+            </details>
+          </div>
+
+          <div class="glass-card legal-card reveal" style="--delay:250ms;">
+            <details>
+              <summary>
+                <span class="left"><span class="ico" style="background:linear-gradient(135deg,#8b5cf6,#ec4899);"><i class="fas fa-comment-dots"></i></span> Feedback &amp; Suggestions</span>
+                <i class="fas fa-chevron-down chev" aria-hidden="true"></i>
+              </summary>
+              <div class="body">
+                <p>Your ideas matter! If you have suggestions for improvement, new service requests, or feedback about MilindWeb, feel free to share. Every input helps shape this platform better.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact-form">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Send us a <span class="text-grad">message</span></h2>
+          <p>Drop your details and a short note. We typically reply within one business day.</p>
+        </div>
+
+        <div class="contact-layout">
+          <form id="contactForm" class="glass-card reveal" novalidate style="padding: var(--s-5); display:flex; flex-direction:column; gap: var(--s-3);">
+            <div class="form-row">
+              <label for="name">Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name" />
+            </div>
+            <div class="form-row">
+              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-row">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91 9876543210" />
+            </div>
+            <div class="form-row">
+              <label for="message">Message <span aria-hidden="true">*</span></label>
+              <textarea id="message" name="message" required rows="5" placeholder="Tell us about your project, question, or feedback…"></textarea>
+            </div>
+            <div class="form-row" style="margin-top: var(--s-2);">
+              <button type="submit" class="btn btn--primary btn--lg" style="width:100%;"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </div>
+            <div id="formAlert" class="alert" role="status" aria-live="polite" hidden></div>
+          </form>
+
+          <aside class="glass-card reveal" style="padding: var(--s-5);">
+            <h3 style="margin:0 0 var(--s-3); font-size:1.1rem;">Reach us directly</h3>
+            <div class="info-row">
+              <span class="ico"><i class="fas fa-envelope"></i></span>
+              <div>
+                <p class="label">Email</p>
+                <a class="value" href="mailto:Aartitechservices@gmail.com">Aartitechservices@gmail.com</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="ico"><i class="fas fa-phone"></i></span>
+              <div>
+                <p class="label">Phone</p>
+                <a class="value" href="tel:+919869787575">+91 9869787575</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="ico"><i class="fab fa-whatsapp"></i></span>
+              <div>
+                <p class="label">WhatsApp</p>
+                <a class="value" href="https://wa.me/919869787575" target="_blank" rel="noopener">Chat on WhatsApp</a>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="ico"><i class="fas fa-location-dot"></i></span>
+              <div>
+                <p class="label">Service area</p>
+                <div class="chips" data-fill="service-areas" aria-label="Service areas"></div>
+              </div>
+            </div>
+            <div class="info-row">
+              <span class="ico"><i class="fas fa-clock"></i></span>
+              <div>
+                <p class="label">Hours</p>
+                <p class="value">Mon to Fri 10:00 - 18:00 IST</p>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <button id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <script src="config.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/insforge-client.js" defer></script>
+    <script src="js/headerfooter.js" defer></script>
+  <script src="js/form-handler.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact MilindWeb",
+    "url": "https://milindweb.github.io/contact.html",
+    "publisher": {"@type": "Organization", "name": "MilindWeb"}
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0f" />
+  <title>MilindWeb — Digital Marketing, Web Development, Automation & More</title>
+
+  <meta name="description" content="Freelance digital marketing, SEO, web development, business automation, engineering projects, photography, graphics, electrical and automotive services across Maharashtra, India." />
+  <meta name="author" content="MilindWeb" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://milindweb.github.io/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MilindWeb — Digital Marketing, Web Development & More" />
+  <meta property="og:description" content="Freelance digital services for startups and small businesses across Maharashtra." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://milindweb.github.io/" />
+  <meta property="og:image" content="https://milindweb.github.io/img/og-cover.jpg" />
+  <meta property="og:site_name" content="MilindWeb" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@milindweb" />
+  <meta name="twitter:title" content="MilindWeb — Digital Services" />
+  <meta name="twitter:description" content="Freelance digital marketing, web, automation, engineering, photography, graphics, electrical & auto services." />
+  <meta name="twitter:image" content="https://milindweb.github.io/img/og-cover.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='66' font-family='system-ui' font-size='58' font-weight='800' text-anchor='middle' fill='white'%3EM%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180x180.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <!-- Preconnect to CDNs -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/headerfooter.css" />
+  <link rel="stylesheet" href="css/posts.css" />
+
+  <!-- Local CSS for homepage-specific tweaks -->
+  <style>
+    /* Hero glow accent */
+    .hero__glow {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(40% 50% at 20% 30%, rgba(99, 102, 241, 0.25), transparent 60%),
+        radial-gradient(30% 40% at 80% 20%, rgba(139, 92, 246, 0.2), transparent 60%),
+        radial-gradient(35% 45% at 50% 80%, rgba(6, 182, 212, 0.15), transparent 60%);
+    }
+    .hero > .container { position: relative; z-index: 1; }
+
+    /* Marquee-style service area chips */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s-2);
+      justify-content: center;
+      margin-top: var(--s-6);
+    }
+    .chip {
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--r-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-1);
+      color: var(--text-2);
+      font-size: 0.85rem;
+      transition: background var(--t-fast) var(--ease), color var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease);
+    }
+    .chip:hover {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      color: var(--accent);
+    }
+    .chip i { color: var(--accent); margin-right: 6px; }
+
+    /* Stats grid (Bento) */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s-4);
+    }
+    .bento__item {
+      padding: var(--s-6);
+      text-align: left;
+    }
+    .bento__item:nth-child(1) { background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(99, 102, 241, 0.02)); }
+    .bento__item:nth-child(2) { background: linear-gradient(135deg, rgba(139, 92, 246, 0.18), rgba(139, 92, 246, 0.02)); }
+    .bento__item:nth-child(3) { background: linear-gradient(135deg, rgba(6, 182, 212, 0.18), rgba(6, 182, 212, 0.02)); }
+    .bento__item:nth-child(4) { background: linear-gradient(135deg, rgba(52, 211, 153, 0.18), rgba(52, 211, 153, 0.02)); }
+
+    /* Process steps */
+    .process {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--s-4);
+    }
+    .process__step {
+      padding: var(--s-6);
+      position: relative;
+    }
+    .process__num {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--r-sm);
+      background: var(--brand-grad);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-bottom: var(--s-3);
+    }
+    .process__step h3 { font-size: 1.1rem; margin-bottom: var(--s-2); }
+    .process__step p { font-size: 0.92rem; }
+
+    /* Team */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--s-4);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .team-card {
+      display: flex;
+      gap: var(--s-4);
+      align-items: flex-start;
+      padding: var(--s-5);
+    }
+    .team-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--brand-grad);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .team-info h3 { font-size: 1.1rem; margin-bottom: 4px; }
+    .team-info .badge { margin-bottom: var(--s-2); }
+    .team-info p { font-size: 0.88rem; color: var(--text-3); }
+
+    /* Final CTA */
+    .cta-final {
+      text-align: center;
+      padding: clamp(3rem, 6vw, 4.5rem) var(--s-5);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-final::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(50% 60% at 50% 50%, rgba(99, 102, 241, 0.15), transparent 70%);
+      pointer-events: none;
+    }
+    .cta-final > * { position: relative; }
+
+    /* Bento responsive */
+    @media (max-width: 900px) {
+      .bento { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .bento { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div id="header"></div>
+
+  <main id="main">
+
+    <!-- ============================================ -->
+    <!-- HERO                                         -->
+    <!-- ============================================ -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="container">
+        <div class="hero__badge reveal">
+          <i class="fas fa-sparkles" aria-hidden="true"></i>
+          <span>Freelance · Multi-disciplinary · Maharashtra</span>
+        </div>
+
+        <h1 class="reveal" data-delay="1">
+          Digital, Technical & Creative
+          <span class="text-grad">Services That Actually Deliver</span>
+        </h1>
+
+        <p class="reveal" data-delay="2">
+          From SEO and websites to engineering projects, photography, graphics, electrical and automotive work — we help startups, students, and small businesses across Maharashtra grow, automate, and stand out.
+        </p>
+
+        <div class="hero__cta reveal" data-delay="3">
+          <a href="#contact" class="btn btn--primary btn--lg">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Get a Free Quote
+          </a>
+          <a href="#services" class="btn btn--ghost btn--lg">
+            <i class="fas fa-grid-2" aria-hidden="true"></i>
+            Explore Services
+          </a>
+        </div>
+
+        <div class="hero__meta reveal" data-delay="4">
+          <span><i class="fas fa-bolt" aria-hidden="true"></i> Fast turnaround</span>
+          <span><i class="fas fa-shield-halved" aria-hidden="true"></i> Transparent pricing</span>
+          <span><i class="fas fa-headset" aria-hidden="true"></i> Direct WhatsApp support</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- STATS / TRUST BENTO                          -->
+    <!-- ============================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="bento reveal">
+          <div class="bento__item glass-card">
+            <div class="stat__num text-grad">2+</div>
+            <div class="stat__label">Years in Digital Marketing</div>
+          </div>
+          <div class="bento__item glass-card">
+            <div class="stat__num text-grad">7+</div>
+            <div class="stat__label">Years in Industry</div>
+          </div>
+          <div class="bento__item glass-card">
+            <div class="stat__num text-grad">100+</div>
+            <div class="stat__label">Projects Delivered</div>
+          </div>
+          <div class="bento__item glass-card">
+            <div class="stat__num text-grad">8</div>
+            <div class="stat__label">Service Categories</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICES (8 cards from config)              -->
+    <!-- ============================================ -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What we do</span>
+          <h2>Services built for <span class="text-grad">real results</span></h2>
+          <p>One team, eight disciplines. Pick what you need today; we can grow with you tomorrow.</p>
+        </div>
+
+        <div class="grid grid--3 stagger" data-fill="services"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- HOW WE WORK                                  -->
+    <!-- ============================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How we work</span>
+          <h2>From idea to delivery — <span class="text-grad">in four steps</span></h2>
+        </div>
+
+        <div class="process">
+          <div class="process__step glass-card reveal" data-delay="1">
+            <div class="process__num">1</div>
+            <h3>Discovery</h3>
+            <p>We listen, audit, and understand your goals, audience, and constraints — no assumptions, no fluff.</p>
+          </div>
+          <div class="process__step glass-card reveal" data-delay="2">
+            <div class="process__num">2</div>
+            <h3>Plan</h3>
+            <p>A clear, written scope with timeline, deliverables, and transparent pricing — before any work begins.</p>
+          </div>
+          <div class="process__step glass-card reveal" data-delay="3">
+            <div class="process__num">3</div>
+            <h3>Build</h3>
+            <p>We execute in tight iterations, share progress, and welcome your feedback at every milestone.</p>
+          </div>
+          <div class="process__step glass-card reveal" data-delay="4">
+            <div class="process__num">4</div>
+            <h3>Launch &amp; Support</h3>
+            <p>We deliver, hand over, and stick around for support, training, and growth — not just an invoice.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- ABOUT + TEAM                                 -->
+    <!-- ============================================ -->
+    <section id="about" class="section">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">About us</span>
+          <h2>A small team with <span class="text-grad">big capabilities</span></h2>
+          <p>MilindWeb is a multi-disciplinary freelance practice. We're engineers, marketers, designers, and makers — focused on practical, affordable, and high-quality work for clients who value substance over buzzwords.</p>
+        </div>
+
+        <div class="team-grid" data-fill="team"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SERVICE AREAS                                -->
+    <!-- ============================================ -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Where we work</span>
+          <h2>Serving <span class="text-grad">Maharashtra</span> and beyond</h2>
+          <p>On-site and remote — we deliver across the state and online to anywhere in India.</p>
+        </div>
+
+        <div class="chip-row reveal">
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Navi Mumbai</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Pune</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Nagpur</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Sambhaji Nagar</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Nanded</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Latur</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Parbhani</span>
+          <span class="chip"><i class="fas fa-location-dot" aria-hidden="true"></i> Hingoli</span>
+          <span class="chip"><i class="fas fa-globe" aria-hidden="true"></i> Remote — All India</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT                                      -->
+    <!-- ============================================ -->
+    <section id="contact" class="section">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">Get in touch</span>
+          <h2>Let's build <span class="text-grad">something great</span></h2>
+          <p>Tell us about your project. We typically respond within a few hours during business days.</p>
+        </div>
+
+        <div class="glass-card reveal" style="padding: var(--s-8);">
+          <form id="contactForm" novalidate>
+            <div class="grid grid--2">
+              <div class="form-row">
+                <label for="service">Service of interest</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a service</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="Jane Doe" />
+              </div>
+              <div class="form-row">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+              </div>
+              <div class="form-row">
+                <label for="phone">Mobile (India)</label>
+                <input id="phone" name="phone" type="tel" required pattern="^[6-9][0-9]{9}$" autocomplete="tel" placeholder="9876543210" />
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="message">Tell us about your project</label>
+              <textarea id="message" name="message" rows="5" maxlength="500" required placeholder="What are you trying to achieve? Any timeline or budget in mind?"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--lg btn--block">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message
+            </button>
+            <div id="response" role="status" aria-live="polite" style="margin-top: var(--s-3);"></div>
+            <p class="text-muted text-sm" style="margin-top: var(--s-3); text-align: center;">
+              <i class="fas fa-lock" aria-hidden="true"></i> We respect your privacy. We never share your details.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TESTIMONIALS                                 -->
+    <!-- ============================================ -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What clients say</span>
+          <h2>Trusted by <span class="text-grad">founders, students &amp; teams</span></h2>
+          <p>Real words from real clients across Maharashtra. No marketing fluff — just outcomes.</p>
+        </div>
+
+        <div class="testimonial-grid" data-fill="testimonials" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FAQ                                          -->
+    <!-- ============================================ -->
+    <section class="section" id="faq">
+      <div class="container container--narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">Frequently asked</span>
+          <h2>Got <span class="text-grad">questions?</span></h2>
+          <p>The things people ask us most. Don't see yours? <a href="contact.html" style="color:var(--accent); text-decoration:underline;">Send a message</a> and we'll reply fast.</p>
+        </div>
+
+        <div class="faq-list" data-fill="faq"></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BLOG TEASER (from /api/v1/portfolio/landing.posts) -->
+    <!-- ============================================ -->
+    <section class="blog-teaser" aria-label="Latest from the blog">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">From the blog</span>
+          <h2>Latest writing &amp; tutorials</h2>
+          <a href="blog.html" class="link-arrow">See all posts <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="grid grid--3 stagger" id="blogTeaser" data-fill="blog-teaser" aria-live="polite">
+          <!-- Populated by js/landing.js (or shows skeleton while loading) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FINAL CTA                                    -->
+    <!-- ============================================ -->
+    <section class="cta-final">
+      <div class="container container--narrow">
+        <h2 class="reveal">Prefer to chat directly?</h2>
+        <p class="reveal" data-delay="1" style="margin-bottom: var(--s-5);">
+          Tap the button below to start a WhatsApp conversation. We usually reply within minutes during business hours.
+        </p>
+        <a href="#" id="waFinalCta" class="btn btn--primary btn--lg reveal" data-delay="2">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer"></div>
+
+  <!-- Theme toggle button -->
+  <button id="themeToggle" type="button" aria-label="Toggle theme">
+    <i class="fas fa-moon" aria-hidden="true"></i>
+  </button>
+
+  <!-- Scripts: config first, then app, then header/footer, then form -->
+  <script src="config.js" defer></script>
+  <script src="js/landing.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/insforge-client.js" defer></script>
+    <script src="js/headerfooter.js" defer></script>
+  <script src="js/blog-teaser.js" defer></script>
+  <script src="js/form-handler.js" defer></script>
+
+  <script>
+    /* Page-level glue — runs after config is available */
+    document.addEventListener("DOMContentLoaded", function () {
+      // Populate the service select from config
+      var select = document.getElementById("service");
+      if (select && window.MW_CONFIG) {
+        window.MW_CONFIG.services.forEach(function (s) {
+          var opt = document.createElement("option");
+          opt.value = s.title;
+          opt.textContent = s.title;
+          select.appendChild(opt);
+        });
+        // Add "Other"
+        var other = document.createElement("option");
+        other.value = "Other";
+        other.textContent = "Other";
+        select.appendChild(other);
+      }
+
+      // Final WhatsApp CTA
+      var waCta = document.getElementById("waFinalCta");
+      if (waCta) {
+        waCta.setAttribute("href", window.MW.waHref("Hi! I'd like to discuss a project with MilindWeb."));
+        waCta.setAttribute("target", "_blank");
+        waCta.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  </script>
+
+  <!-- Service schema.org JSON-LD (auto-built from config) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (!window.MW_CONFIG) return;
+      if (document.querySelector('script[data-svc-schema]')) return;
+      var services = window.MW_CONFIG.services.map(function (s) {
+        return {
+          "@type": "Service",
+          "name": s.title,
+          "description": s.summary,
+          "provider": { "@type": "Organization", "name": window.MW_CONFIG.brand.name }
+        };
+      });
+      var schema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "MilindWeb Services",
+        "itemListElement": services.map(function (s, i) {
+          return { "@type": "ListItem", "position": i + 1, "item": s };
+        })
+      };
+      var s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.dataset.svcSchema = "1";
+      s.textContent = JSON.stringify(schema, null, 2);
+      document.head.appendChild(s);
+    });
+  </script>
+</body>
+</html>

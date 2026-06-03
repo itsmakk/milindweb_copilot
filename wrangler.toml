@@ -1,0 +1,22 @@
+name = "milindweb-api-proxy"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Production: route via dashboard (Triggers tab). Routes:
+#   mk9.in/api/*     → this worker
+#   www.mk9.in/api/* → this worker
+#
+# Local dev: `pnpm dlx wrangler dev` (uses [env.dev] below).
+
+[vars]
+# ↑ UPSTREAM is set per-environment below; not as a [vars] entry.
+
+[env.production.vars]
+UPSTREAM = "https://milindweb-api.onrender.com"
+
+[env.staging.vars]
+UPSTREAM = "https://milindweb-api-staging.onrender.com"
+
+[env.dev.vars]
+UPSTREAM = "http://localhost:3000"

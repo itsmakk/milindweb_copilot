@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in — MilindWeb</title>
+  <meta name="description" content="Sign in to your MilindWeb dashboard." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/auth/auth.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <div class="auth-card">
+      <a href="/" class="auth-brand">MilindWeb</a>
+      <h1>Sign in</h1>
+      <p class="auth-sub">Access your Seniority, Hospital, or Portfolio dashboards.</p>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <label>
+          <span>Email</span>
+          <input id="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="password" type="password" autocomplete="current-password" required minlength="8" />
+        </label>
+        <button type="submit" class="auth-btn" id="submit-btn">Sign in</button>
+        <p id="form-error" class="auth-error" role="alert" hidden></p>
+      </form>
+
+      <p class="auth-foot">
+        No account? <a href="/auth/signup.html">Create one</a>.
+        <br />
+        <a href="/">Back to site</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="/auth/auth.js"></script>
+  <script type="module" src="/auth/login.js"></script>
+</body>
+</html>

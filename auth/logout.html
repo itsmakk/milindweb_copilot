@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signing out…</title>
+  <link rel="stylesheet" href="/css/theme.css" />
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .auth-shell { text-align: center; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="auth-shell">
+    <h1>Signing out…</h1>
+    <p>You will be redirected in a moment.</p>
+  </div>
+
+  <script src="/js/insforge-client.js"></script>
+  <script>
+    (async function () {
+      const returnTo = new URLSearchParams(location.search).get('returnTo') || '/';
+      try { await MW_INS.signOut(); } catch (_) { /* best-effort */ }
+      window.location.href = returnTo;
+    })();
+  </script>
+</body>
+</html>

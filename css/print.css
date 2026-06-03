@@ -1,0 +1,124 @@
+/* =========================================================
+   MilindWeb — Print Stylesheet
+   - Strip chrome (header, footer, theme toggle, back-to-top, cookie banner)
+   - Convert cards to plain stacked blocks
+   - High-contrast black on white, ink-friendly palette
+   - Expand truncated content
+   - Page breaks: avoid inside cards/quotes/code blocks
+   - OPD visit printout is the primary target (used in hospital/visits)
+   ========================================================= */
+
+@media print {
+  /* Force light palette + ink-friendly colors */
+  :root,
+  [data-theme="dark"] {
+    --bg: #ffffff;
+    --bg-soft: #ffffff;
+    --surface-1: #ffffff;
+    --surface-2: #f6f7f9;
+    --text: #0c0d10;
+    --text-muted: #4a4f57;
+    --border-1: #d8dbe0;
+    --accent: #1a1a1a;
+    --chip-bg: #eef0f3;
+  }
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  /* Hide everything that isn't the content */
+  #header,
+  #footer,
+  #themeToggle,
+  #backToTop,
+  #readingProgress,
+  .cookie-banner,
+  .no-print,
+  nav,
+  aside,
+  .header-footer,
+  .topbar,
+  .pagination,
+  .skip-link,
+  .form-actions,
+  [role="banner"],
+  [role="navigation"]:not(.mw-show-print) { display: none !important; }
+
+  /* Reset the layout to a single column */
+  .container { max-width: 100% !important; padding: 0 12mm !important; }
+  .grid, .grid--2, .grid--3, .grid--4 { display: block !important; }
+  .card, .feature-card, .glass-card, .testimonial, .blog-teaser > * {
+    border: 1px solid #999 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    margin-bottom: 8mm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .card__media img { max-height: 60mm; width: auto; }
+
+  /* Truncation: reveal full text on print */
+  .card__desc,
+  .testimonial__quote,
+  .faq-item__answer,
+  details:not([open]) > *:not(summary) { display: revert !important; }
+  .card__desc { -webkit-line-clamp: unset; display: block; overflow: visible; }
+
+  /* Make sure the page header is visible — used by OPD visit printout */
+  .print-only { display: block !important; }
+  .mw-print-header {
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 2px solid #000;
+    padding-bottom: 6mm; margin-bottom: 6mm;
+  }
+  .mw-print-header img { max-height: 14mm; }
+  .mw-print-header h1 { font-size: 16pt; margin: 0; }
+  .mw-print-header .meta { font-size: 9pt; color: #444; text-align: right; }
+  .mw-print-footer {
+    position: fixed; bottom: 8mm; left: 0; right: 0;
+    border-top: 1px solid #999; padding-top: 3mm;
+    font-size: 8pt; color: #555; text-align: center;
+  }
+  /* OPD visit printout signature line */
+  .mw-signature {
+    margin-top: 12mm;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12mm;
+  }
+  .mw-signature .line {
+    border-top: 1px solid #000; padding-top: 2mm; font-size: 9pt;
+  }
+
+  /* Avoid awkward breaks */
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  img, pre, code, blockquote, table { page-break-inside: avoid; break-inside: avoid; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border: 1px solid #999; padding: 4px 6px; text-align: left; }
+
+  /* Expand any open <details> regardless of state */
+  details { display: block !important; }
+  details > summary { font-weight: 700; }
+  details:not([open]) > *:not(summary) { display: block !important; }
+
+  /* Print headers/footers (browsers honour these) */
+  @page {
+    size: A4 portrait;
+    margin: 14mm 12mm 18mm 12mm;
+  }
+  @page :first { margin-top: 8mm; }
+
+  /* Hyperlinks: show URL, no color */
+  a, a:visited { color: #000 !important; text-decoration: underline; }
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 85%; color: #555;
+  }
+  /* Don't expose internal hash-only or javascript: links */
+  a[href^="#"]::after, a[href^="javascript:"]::after, a.no-print-link::after { content: "" !important; }
+}
+
+/* Print-only elements are hidden on screen by default */
+.print-only { display: none; }

@@ -1,0 +1,209 @@
+/* =========================================================
+   MilindWeb Hospital — OPD Registration styles
+   Clean, modern replacement for the legacy form.html.
+   Print rules live in css/print.css (auto-injected by app.js).
+   ========================================================= */
+:root {
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --surface-2: #f1f4f9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-2: #1d4ed8;
+  --success: #16a34a;
+  --danger: #dc2626;
+  --warn: #d97706;
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+[data-theme="dark"] {
+  --bg: #0b0d12;
+  --surface: #11141b;
+  --surface-2: #1c2030;
+  --text: #f8fafc;
+  --text-muted: #9aa3b2;
+  --border: #2a2f3d;
+  --accent: #60a5fa;
+  --accent-2: #3b82f6;
+  --success: #34d399;
+  --danger: #f87171;
+  --warn: #fbbf24;
+}
+
+.opd-app { max-width: 1200px; margin: 0 auto; padding: 24px 20px 80px; }
+.opd-app__head {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px; gap: 12px; flex-wrap: wrap;
+}
+.opd-app__head h1 {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 1.5rem; margin: 0;
+}
+.opd-app__head h1 i { color: var(--accent); }
+.opd-app__who { color: var(--text-muted); font-size: 0.9rem; }
+.opd-app__who strong { color: var(--text); }
+
+.opd-step {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.opd-step__head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+}
+.opd-step__head h2 { margin: 0; font-size: 1.05rem; }
+.opd-step__num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-weight: 700; font-size: 0.9rem;
+}
+.opd-step__body { padding: 18px; }
+
+.opd-h3 {
+  margin: 22px 0 8px; font-size: 0.85rem; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600;
+  border-top: 1px solid var(--border); padding-top: 14px;
+}
+.opd-h3:first-of-type { border-top: 0; padding-top: 4px; margin-top: 12px; }
+
+/* Search */
+.opd-search { display: flex; flex-direction: column; gap: 8px; }
+.opd-search label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+.opd-search__row { display: flex; gap: 8px; flex-wrap: wrap; }
+.opd-search__row input { flex: 1 1 240px; }
+.opd-search__results { display: flex; flex-direction: column; gap: 4px; }
+.opd-search__hit {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 12px; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; cursor: pointer;
+}
+.opd-search__hit:hover { border-color: var(--accent); }
+.opd-search__hit strong { color: var(--accent); margin-right: 6px; }
+.opd-search__hit small { color: var(--text-muted); }
+.opd-search__empty { padding: 10px 12px; color: var(--text-muted); font-size: 0.9rem; }
+
+/* Patient card */
+.opd-patient-card {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px;
+  padding: 14px 16px; background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; margin-top: 12px;
+}
+.opd-patient-card dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; margin: 0; font-size: 0.92rem; }
+.opd-patient-card dt { color: var(--text-muted); font-weight: 600; }
+.opd-patient-card dd { margin: 0; }
+.opd-patient-card__head { grid-column: 1 / -1; display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+.opd-patient-card__head h3 { margin: 0; font-size: 1.05rem; }
+.opd-patient-card__uhid {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.04em;
+}
+.opd-patient-card__actions { display: flex; flex-direction: column; gap: 6px; align-self: start; }
+
+/* Grid + fields */
+.opd-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 18px;
+  margin-bottom: 6px;
+}
+.opd-grid--vitals { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 800px) {
+  .opd-grid, .opd-grid--vitals { grid-template-columns: 1fr; }
+}
+.opd-field { display: flex; flex-direction: column; gap: 4px; position: relative; }
+.opd-field--span-2 { grid-column: span 2; }
+.opd-field label { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
+.opd-field label small { color: var(--text-muted); font-weight: 400; font-size: 0.78rem; }
+.opd-field input,
+.opd-field select,
+.opd-field textarea {
+  width: 100%; padding: 8px 10px; font: inherit; color: var(--text);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+}
+.opd-field input:focus,
+.opd-field select:focus,
+.opd-field textarea:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: var(--accent); }
+.opd-field textarea { resize: vertical; min-height: 38px; }
+
+.opd-suggest {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 30;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  box-shadow: var(--shadow-md); max-height: 220px; overflow-y: auto;
+  display: none;
+}
+.opd-suggest.is-open { display: block; }
+.opd-suggest__hit {
+  padding: 8px 12px; cursor: pointer; font-size: 0.92rem;
+  display: flex; align-items: center; gap: 8px;
+}
+.opd-suggest__hit:hover, .opd-suggest__hit.is-active { background: var(--surface-2); }
+.opd-suggest__hit .cat { color: var(--text-muted); font-size: 0.78rem; margin-left: auto; }
+
+.opd-hint { color: var(--text-muted); font-size: 0.8rem; margin-top: 4px; }
+
+/* Prescriptions */
+.opd-rx-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.opd-rx-row {
+  display: grid; grid-template-columns: 1.4fr 1fr 0.6fr 0.6fr 0.6fr 0.5fr auto; gap: 6px;
+  background: var(--surface-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px;
+}
+.opd-rx-row input,
+.opd-rx-row select {
+  width: 100%; padding: 6px 8px; font: inherit; color: var(--text);
+  background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+}
+.opd-rx-row .opd-suggest { position: static; box-shadow: none; }
+.opd-rx-row .opd-suggest-wrap { grid-column: 1 / -1; position: relative; }
+.opd-rx-row .opd-rx-del {
+  background: transparent; border: 0; color: var(--danger);
+  cursor: pointer; padding: 4px; font-size: 0.95rem;
+}
+@media (max-width: 800px) { .opd-rx-row { grid-template-columns: 1fr 1fr; } }
+
+/* Actions */
+.opd-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 18px; }
+
+/* Done */
+.opd-done { display: flex; flex-direction: column; gap: 8px; }
+.opd-done .badge-ok {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(22, 163, 74, 0.12); color: var(--success);
+  padding: 6px 12px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+  width: max-content;
+}
+.opd-done .opd-no {
+  font-size: 1.4rem; font-weight: 700; color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.opd-done dl { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; font-size: 0.92rem; }
+.opd-done dt { color: var(--text-muted); font-weight: 600; }
+.opd-done dd { margin: 0; }
+.opd-done h4 { margin: 14px 0 6px; font-size: 0.9rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.05em; }
+
+/* Toast */
+.opd-toast {
+  position: fixed; bottom: 24px; right: 24px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-left: 4px solid var(--accent); border-radius: 8px;
+  padding: 10px 14px; box-shadow: var(--shadow-md); z-index: 200;
+  max-width: 360px; font-size: 0.92rem;
+}
+.opd-toast--error { border-left-color: var(--danger); }
+.opd-toast--success { border-left-color: var(--success); }
+.opd-toast--warn { border-left-color: var(--warn); }
+
+/* Print — OPD slip specific */
+@media print {
+  .opd-step, .opd-app__head, #header, #footer, #backToTop, #themeToggle, #readingProgress, .cookie-banner { display: none !important; }
+  #opdStepDone { display: block !important; }
+  .mw-print-header { display: flex !important; }
+  .opd-done { page-break-inside: avoid; }
+  .opd-done .opd-no { font-size: 14pt; }
+}

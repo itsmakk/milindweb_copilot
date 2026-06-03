@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Signing you in…</title>
+</head>
+<body>
+  <p>Finishing sign-in…</p>
+  <script src="/js/insforge-client.js"></script>
+  <script>
+    (async function () {
+      const params = new URLSearchParams(location.search);
+      // InsForge OAuth may pass tokens in the URL hash or via a short-lived code.
+      // We just forward the user to the home page; MW_INS will pick up the
+      // session from localStorage on next page load.
+      const returnTo = params.get('returnTo') || '/';
+      window.location.replace(returnTo);
+    })();
+  </script>
+</body>
+</html>

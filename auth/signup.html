@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create account — MilindWeb</title>
+  <meta name="description" content="Create a MilindWeb account." />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="stylesheet" href="/auth/auth.css" />
+</head>
+<body>
+  <main class="auth-shell">
+    <div class="auth-card">
+      <a href="/" class="auth-brand">MilindWeb</a>
+      <h1>Create your account</h1>
+      <p class="auth-sub">One account across Seniority, Hospital, and Portfolio.</p>
+
+      <form id="signup-form" class="auth-form" novalidate>
+        <label>
+          <span>Name</span>
+          <input id="name" type="text" autocomplete="name" required minlength="2" />
+        </label>
+        <label>
+          <span>Email</span>
+          <input id="email" type="email" autocomplete="email" required />
+        </label>
+        <label>
+          <span>Password</span>
+          <input id="password" type="password" autocomplete="new-password" required minlength="8" />
+        </label>
+        <label>
+          <span>Confirm password</span>
+          <input id="confirm" type="password" autocomplete="new-password" required minlength="8" />
+        </label>
+        <button type="submit" class="auth-btn" id="submit-btn">Create account</button>
+        <p id="form-error" class="auth-error" role="alert" hidden></p>
+      </form>
+
+      <p class="auth-foot">
+        Already registered? <a href="/auth/login.html">Sign in</a>.
+        <br />
+        <a href="/">Back to site</a>
+      </p>
+    </div>
+  </main>
+
+  <script type="module" src="/auth/auth.js"></script>
+  <script type="module" src="/auth/signup.js"></script>
+</body>
+</html>
